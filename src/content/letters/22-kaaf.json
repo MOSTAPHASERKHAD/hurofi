@@ -1,0 +1,180 @@
+{
+  "id": 22,
+  "letter": "ك",
+  "name": "كاف",
+  "forms": {
+    "isolated": "ك",
+    "initial": "كـ",
+    "medial": "ـكـ",
+    "final": "ـك"
+  },
+  "words": [
+    {
+      "id": "كاف_1",
+      "arabic": "كتاب",
+      "transliteration": "kitab",
+      "english": "Book",
+      "position": "initial",
+      "syllables": [],
+      "image": "📖"
+    },
+    {
+      "id": "كاف_2",
+      "arabic": "كرة",
+      "transliteration": "kurah",
+      "english": "Ball",
+      "position": "initial",
+      "syllables": [],
+      "image": "⚽"
+    },
+    {
+      "id": "كاف_3",
+      "arabic": "كرسي",
+      "transliteration": "kursiyy",
+      "english": "Chair",
+      "position": "initial",
+      "syllables": [],
+      "image": "🪑"
+    },
+    {
+      "id": "كاف_4",
+      "arabic": "كلب",
+      "transliteration": "kalb",
+      "english": "Dog",
+      "position": "initial",
+      "syllables": [],
+      "image": "🐕"
+    },
+    {
+      "id": "كاف_5",
+      "arabic": "كوب",
+      "transliteration": "kub",
+      "english": "Cup",
+      "position": "initial",
+      "syllables": [],
+      "image": "🥤"
+    }
+  ],
+  "phonemes": [
+    {
+      "sound": "كَ",
+      "diacritic": "فتحة",
+      "audio": "/audio/phonemes/kaaf_fatha.mp3"
+    },
+    {
+      "sound": "كُ",
+      "diacritic": "ضمة",
+      "audio": "/audio/phonemes/kaaf_damma.mp3"
+    },
+    {
+      "sound": "كِ",
+      "diacritic": "كسرة",
+      "audio": "/audio/phonemes/kaaf_kasra.mp3"
+    },
+    {
+      "sound": "كْ",
+      "diacritic": "سكون",
+      "audio": "/audio/phonemes/kaaf_sukun.mp3"
+    }
+  ],
+  "activities": [
+    {
+      "type": "trace",
+      "name": "تتبع الحرف",
+      "config": {
+        "difficulty": "guided"
+      }
+    },
+    {
+      "type": "phonics_wheel",
+      "name": "عجلة الصوتيات",
+      "config": {
+        "diacritics": [
+          "fatha",
+          "damma",
+          "kasra",
+          "sukun"
+        ]
+      }
+    },
+    {
+      "type": "match",
+      "name": "مطابقة الحرف بالصورة",
+      "config": {
+        "type": "letter_image"
+      }
+    },
+    {
+      "type": "find",
+      "name": "ابحث عن الحرف",
+      "config": {
+        "gridSize": 12
+      }
+    },
+    {
+      "type": "color",
+      "name": "تلوين الصورة",
+      "config": {}
+    }
+  ],
+  "reviewGame": {
+    "type": "bingo",
+    "name": "بنغو الحروف",
+    "config": {
+      "letters": [
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ"
+      ]
+    }
+  },
+  "montessoriTip": "دع الطفل يمسح حرف 'ك' بإصبعه على ورقة صنفرة ويقول: 'ك ك ك... كلب' - يربط الحرف بالصوت والصورة الحقيقية.",
+  "audioUrls": {
+    "letter": "/audio/letters/kaaf.mp3",
+    "words": [
+      "/audio/words/ك/كتاب.mp3",
+      "/audio/words/ك/كرة.mp3",
+      "/audio/words/ك/كرسي.mp3",
+      "/audio/words/ك/كلب.mp3",
+      "/audio/words/ك/كوب.mp3"
+    ],
+    "encouragement": {
+      "correct": "/audio/encouragement/correct.mp3",
+      "wrong": "/audio/encouragement/wrong.mp3",
+      "complete": "/audio/encouragement/complete.mp3"
+    }
+  },
+  "matchWords": [
+    {
+      "id": "كاف_1_form",
+      "arabic": "كتاب",
+      "transliteration": "kitab",
+      "english": "Book",
+      "position": "initial",
+      "syllables": [],
+      "image": "📖"
+    },
+    {
+      "id": "كاف_1",
+      "arabic": "مكتب",
+      "transliteration": "maktab",
+      "english": "Desk",
+      "position": "medial",
+      "syllables": [],
+      "image": "🪑"
+    },
+    {
+      "id": "كاف_2",
+      "arabic": "سمك",
+      "transliteration": "samak",
+      "english": "Fish",
+      "position": "final",
+      "syllables": [],
+      "image": "🐟"
+    }
+  ]
+}

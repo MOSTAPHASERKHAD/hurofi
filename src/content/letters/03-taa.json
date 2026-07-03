@@ -1,0 +1,180 @@
+{
+  "id": 3,
+  "letter": "ت",
+  "name": "تاء",
+  "forms": {
+    "isolated": "ت",
+    "initial": "تـ",
+    "medial": "ـتـ",
+    "final": "ـت"
+  },
+  "words": [
+    {
+      "id": "تاء_1",
+      "arabic": "تفاحة",
+      "transliteration": "tuffahah",
+      "english": "Apple",
+      "position": "initial",
+      "syllables": [],
+      "image": "🍎"
+    },
+    {
+      "id": "تاء_2",
+      "arabic": "تمساح",
+      "transliteration": "timsah",
+      "english": "Crocodile",
+      "position": "initial",
+      "syllables": [],
+      "image": "🐊"
+    },
+    {
+      "id": "تاء_3",
+      "arabic": "تين",
+      "transliteration": "tin",
+      "english": "Fig",
+      "position": "initial",
+      "syllables": [],
+      "image": "🥝"
+    },
+    {
+      "id": "تاء_4",
+      "arabic": "تاج",
+      "transliteration": "taj",
+      "english": "Crown",
+      "position": "initial",
+      "syllables": [],
+      "image": "👑"
+    },
+    {
+      "id": "تاء_5",
+      "arabic": "تلفاز",
+      "transliteration": "tilifiz",
+      "english": "TV",
+      "position": "initial",
+      "syllables": [],
+      "image": "📺"
+    }
+  ],
+  "phonemes": [
+    {
+      "sound": "تَ",
+      "diacritic": "فتحة",
+      "audio": "/audio/phonemes/taa_fatha.mp3"
+    },
+    {
+      "sound": "تُ",
+      "diacritic": "ضمة",
+      "audio": "/audio/phonemes/taa_damma.mp3"
+    },
+    {
+      "sound": "تِ",
+      "diacritic": "كسرة",
+      "audio": "/audio/phonemes/taa_kasra.mp3"
+    },
+    {
+      "sound": "تْ",
+      "diacritic": "سكون",
+      "audio": "/audio/phonemes/taa_sukun.mp3"
+    }
+  ],
+  "activities": [
+    {
+      "type": "trace",
+      "name": "تتبع الحرف",
+      "config": {
+        "difficulty": "guided"
+      }
+    },
+    {
+      "type": "phonics_wheel",
+      "name": "عجلة الصوتيات",
+      "config": {
+        "diacritics": [
+          "fatha",
+          "damma",
+          "kasra",
+          "sukun"
+        ]
+      }
+    },
+    {
+      "type": "match",
+      "name": "مطابقة الحرف بالصورة",
+      "config": {
+        "type": "letter_image"
+      }
+    },
+    {
+      "type": "find",
+      "name": "ابحث عن الحرف",
+      "config": {
+        "gridSize": 12
+      }
+    },
+    {
+      "type": "color",
+      "name": "تلوين الصورة",
+      "config": {}
+    }
+  ],
+  "reviewGame": {
+    "type": "bingo",
+    "name": "بنغو الحروف",
+    "config": {
+      "letters": [
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ"
+      ]
+    }
+  },
+  "montessoriTip": "دع الطفل يمسح حرف 'ت' بإصبعه على ورقة صنفرة ويقول: 'ت ت ت... تفاحة' - يربط الحرف بالصوت والصورة الحقيقية.",
+  "audioUrls": {
+    "letter": "/audio/letters/taa.mp3",
+    "words": [
+      "/audio/words/ت/تفاحة.mp3",
+      "/audio/words/ت/تمساح.mp3",
+      "/audio/words/ت/تين.mp3",
+      "/audio/words/ت/تاج.mp3",
+      "/audio/words/ت/تلفاز.mp3"
+    ],
+    "encouragement": {
+      "correct": "/audio/encouragement/correct.mp3",
+      "wrong": "/audio/encouragement/wrong.mp3",
+      "complete": "/audio/encouragement/complete.mp3"
+    }
+  },
+  "matchWords": [
+    {
+      "id": "تاء_1_form",
+      "arabic": "تفاحة",
+      "transliteration": "tuffahah",
+      "english": "Apple",
+      "position": "initial",
+      "syllables": [],
+      "image": "🍎"
+    },
+    {
+      "id": "تاء_1",
+      "arabic": "كتكوت",
+      "transliteration": "kutkut",
+      "english": "Chick",
+      "position": "medial",
+      "syllables": [],
+      "image": "🐤"
+    },
+    {
+      "id": "تاء_2",
+      "arabic": "بيت",
+      "transliteration": "bayt",
+      "english": "House",
+      "position": "final",
+      "syllables": [],
+      "image": "🏠"
+    }
+  ]
+}

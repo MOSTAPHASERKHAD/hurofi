@@ -1,0 +1,180 @@
+{
+  "id": 14,
+  "letter": "ص",
+  "name": "صاد",
+  "forms": {
+    "isolated": "ص",
+    "initial": "صـ",
+    "medial": "ـصـ",
+    "final": "ـص"
+  },
+  "words": [
+    {
+      "id": "صاد_1",
+      "arabic": "صابون",
+      "transliteration": "sabun",
+      "english": "Soap",
+      "position": "initial",
+      "syllables": [],
+      "image": "🧼"
+    },
+    {
+      "id": "صاد_2",
+      "arabic": "صحن",
+      "transliteration": "sahn",
+      "english": "Plate",
+      "position": "initial",
+      "syllables": [],
+      "image": "🍽️"
+    },
+    {
+      "id": "صاد_3",
+      "arabic": "صقر",
+      "transliteration": "saqr",
+      "english": "Falcon",
+      "position": "initial",
+      "syllables": [],
+      "image": "🦅"
+    },
+    {
+      "id": "صاد_4",
+      "arabic": "صندوق",
+      "transliteration": "sanduq",
+      "english": "Box",
+      "position": "initial",
+      "syllables": [],
+      "image": "📦"
+    },
+    {
+      "id": "صاد_5",
+      "arabic": "صورة",
+      "transliteration": "surah",
+      "english": "Picture",
+      "position": "initial",
+      "syllables": [],
+      "image": "🖼️"
+    }
+  ],
+  "phonemes": [
+    {
+      "sound": "صَ",
+      "diacritic": "فتحة",
+      "audio": "/audio/phonemes/saad_fatha.mp3"
+    },
+    {
+      "sound": "صُ",
+      "diacritic": "ضمة",
+      "audio": "/audio/phonemes/saad_damma.mp3"
+    },
+    {
+      "sound": "صِ",
+      "diacritic": "كسرة",
+      "audio": "/audio/phonemes/saad_kasra.mp3"
+    },
+    {
+      "sound": "صْ",
+      "diacritic": "سكون",
+      "audio": "/audio/phonemes/saad_sukun.mp3"
+    }
+  ],
+  "activities": [
+    {
+      "type": "trace",
+      "name": "تتبع الحرف",
+      "config": {
+        "difficulty": "guided"
+      }
+    },
+    {
+      "type": "phonics_wheel",
+      "name": "عجلة الصوتيات",
+      "config": {
+        "diacritics": [
+          "fatha",
+          "damma",
+          "kasra",
+          "sukun"
+        ]
+      }
+    },
+    {
+      "type": "match",
+      "name": "مطابقة الحرف بالصورة",
+      "config": {
+        "type": "letter_image"
+      }
+    },
+    {
+      "type": "find",
+      "name": "ابحث عن الحرف",
+      "config": {
+        "gridSize": 12
+      }
+    },
+    {
+      "type": "color",
+      "name": "تلوين الصورة",
+      "config": {}
+    }
+  ],
+  "reviewGame": {
+    "type": "bingo",
+    "name": "بنغو الحروف",
+    "config": {
+      "letters": [
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ"
+      ]
+    }
+  },
+  "montessoriTip": "دع الطفل يمسح حرف 'ص' بإصبعه على ورقة صنفرة ويقول: 'ص ص ص... صقر' - يربط الحرف بالصوت والصورة الحقيقية.",
+  "audioUrls": {
+    "letter": "/audio/letters/saad.mp3",
+    "words": [
+      "/audio/words/ص/صابون.mp3",
+      "/audio/words/ص/صحن.mp3",
+      "/audio/words/ص/صقر.mp3",
+      "/audio/words/ص/صندوق.mp3",
+      "/audio/words/ص/صورة.mp3"
+    ],
+    "encouragement": {
+      "correct": "/audio/encouragement/correct.mp3",
+      "wrong": "/audio/encouragement/wrong.mp3",
+      "complete": "/audio/encouragement/complete.mp3"
+    }
+  },
+  "matchWords": [
+    {
+      "id": "صاد_1_form",
+      "arabic": "صابون",
+      "transliteration": "sabun",
+      "english": "Soap",
+      "position": "initial",
+      "syllables": [],
+      "image": "🧼"
+    },
+    {
+      "id": "صاد_1",
+      "arabic": "عصفور",
+      "transliteration": "usfur",
+      "english": "Bird",
+      "position": "medial",
+      "syllables": [],
+      "image": "🐦"
+    },
+    {
+      "id": "صاد_2",
+      "arabic": "قفص",
+      "transliteration": "qafas",
+      "english": "Cage",
+      "position": "final",
+      "syllables": [],
+      "image": "🦜"
+    }
+  ]
+}

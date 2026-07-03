@@ -1,0 +1,180 @@
+{
+  "id": 2,
+  "letter": "ب",
+  "name": "باء",
+  "phonemes": [
+    {
+      "sound": "بَ",
+      "diacritic": "فتحة",
+      "audio": "/audio/phonemes/baa_fatha.mp3"
+    },
+    {
+      "sound": "بُ",
+      "diacritic": "ضمة",
+      "audio": "/audio/phonemes/baa_damma.mp3"
+    },
+    {
+      "sound": "بِ",
+      "diacritic": "كسرة",
+      "audio": "/audio/phonemes/baa_kasra.mp3"
+    },
+    {
+      "sound": "بْ",
+      "diacritic": "سكون",
+      "audio": "/audio/phonemes/baa_sukun.mp3"
+    }
+  ],
+  "forms": {
+    "isolated": "ب",
+    "initial": "بـ",
+    "medial": "ـبـ",
+    "final": "ـب"
+  },
+  "words": [
+    {
+      "id": "باء_1",
+      "arabic": "باب",
+      "transliteration": "bab",
+      "english": "Door",
+      "position": "initial",
+      "syllables": [],
+      "image": "🚪"
+    },
+    {
+      "id": "باء_2",
+      "arabic": "بطة",
+      "transliteration": "batta",
+      "english": "Duck",
+      "position": "initial",
+      "syllables": [],
+      "image": "🦆"
+    },
+    {
+      "id": "باء_3",
+      "arabic": "بحر",
+      "transliteration": "bahr",
+      "english": "Sea",
+      "position": "initial",
+      "syllables": [],
+      "image": "🌊"
+    },
+    {
+      "id": "باء_4",
+      "arabic": "برتقال",
+      "transliteration": "burtuqal",
+      "english": "Orange",
+      "position": "initial",
+      "syllables": [],
+      "image": "🍊"
+    },
+    {
+      "id": "باء_5",
+      "arabic": "بيت",
+      "transliteration": "bayt",
+      "english": "House",
+      "position": "initial",
+      "syllables": [],
+      "image": "🏠"
+    }
+  ],
+  "activities": [
+    {
+      "type": "trace",
+      "name": "تتبع الحرف",
+      "config": {
+        "difficulty": "guided"
+      }
+    },
+    {
+      "type": "phonics_wheel",
+      "name": "عجلة الصوتيات",
+      "config": {
+        "diacritics": [
+          "fatha",
+          "damma",
+          "kasra",
+          "sukun"
+        ]
+      }
+    },
+    {
+      "type": "match",
+      "name": "مطابقة الحرف بالصورة",
+      "config": {
+        "type": "letter_image"
+      }
+    },
+    {
+      "type": "find",
+      "name": "ابحث عن الحرف",
+      "config": {
+        "gridSize": 12
+      }
+    },
+    {
+      "type": "color",
+      "name": "تلوين الصورة",
+      "config": {}
+    }
+  ],
+  "reviewGame": {
+    "type": "bingo",
+    "name": "بنغو الحروف",
+    "config": {
+      "letters": [
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ"
+      ]
+    }
+  },
+  "montessoriTip": "استخدم قطعة خشب بحرف الباء ودع الطفل يلمسها ويقول 'ببب... باب'. يمكن أيضاً استخدام حبوب العدس لترتيبها على شكل باء.",
+  "audioUrls": {
+    "letter": "/audio/letters/baa.mp3",
+    "words": [
+      "/audio/words/ب/باب.mp3",
+      "/audio/words/ب/بطة.mp3",
+      "/audio/words/ب/بحر.mp3",
+      "/audio/words/ب/برتقال.mp3",
+      "/audio/words/ب/بيت.mp3"
+    ],
+    "encouragement": {
+      "correct": "/audio/encouragement/correct.mp3",
+      "wrong": "/audio/encouragement/wrong.mp3",
+      "complete": "/audio/encouragement/complete.mp3"
+    }
+  },
+  "matchWords": [
+    {
+      "id": "باء_1_form",
+      "arabic": "باب",
+      "transliteration": "bab",
+      "english": "Door",
+      "position": "initial",
+      "syllables": [],
+      "image": "🚪"
+    },
+    {
+      "id": "باء_1",
+      "arabic": "جبل",
+      "transliteration": "jabal",
+      "english": "Mountain",
+      "position": "medial",
+      "syllables": [],
+      "image": "🏔️"
+    },
+    {
+      "id": "باء_2",
+      "arabic": "كتاب",
+      "transliteration": "kitab",
+      "english": "Book",
+      "position": "final",
+      "syllables": [],
+      "image": "📖"
+    }
+  ]
+}

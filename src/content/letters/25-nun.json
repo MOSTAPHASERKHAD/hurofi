@@ -1,0 +1,180 @@
+{
+  "id": 25,
+  "letter": "ن",
+  "name": "نون",
+  "forms": {
+    "isolated": "ن",
+    "initial": "نـ",
+    "medial": "ـنـ",
+    "final": "ـن"
+  },
+  "words": [
+    {
+      "id": "نون_1",
+      "arabic": "نجم",
+      "transliteration": "najm",
+      "english": "Star",
+      "position": "initial",
+      "syllables": [],
+      "image": "⭐"
+    },
+    {
+      "id": "نون_2",
+      "arabic": "نحلة",
+      "transliteration": "nahlah",
+      "english": "Bee",
+      "position": "initial",
+      "syllables": [],
+      "image": "🐝"
+    },
+    {
+      "id": "نون_3",
+      "arabic": "نخلة",
+      "transliteration": "nakhlah",
+      "english": "Palm",
+      "position": "initial",
+      "syllables": [],
+      "image": "🌴"
+    },
+    {
+      "id": "نون_4",
+      "arabic": "نملة",
+      "transliteration": "namlah",
+      "english": "Ant",
+      "position": "initial",
+      "syllables": [],
+      "image": "🐜"
+    },
+    {
+      "id": "نون_5",
+      "arabic": "نهر",
+      "transliteration": "nahr",
+      "english": "River",
+      "position": "initial",
+      "syllables": [],
+      "image": "🌊"
+    }
+  ],
+  "phonemes": [
+    {
+      "sound": "نَ",
+      "diacritic": "فتحة",
+      "audio": "/audio/phonemes/nun_fatha.mp3"
+    },
+    {
+      "sound": "نُ",
+      "diacritic": "ضمة",
+      "audio": "/audio/phonemes/nun_damma.mp3"
+    },
+    {
+      "sound": "نِ",
+      "diacritic": "كسرة",
+      "audio": "/audio/phonemes/nun_kasra.mp3"
+    },
+    {
+      "sound": "نْ",
+      "diacritic": "سكون",
+      "audio": "/audio/phonemes/nun_sukun.mp3"
+    }
+  ],
+  "activities": [
+    {
+      "type": "trace",
+      "name": "تتبع الحرف",
+      "config": {
+        "difficulty": "guided"
+      }
+    },
+    {
+      "type": "phonics_wheel",
+      "name": "عجلة الصوتيات",
+      "config": {
+        "diacritics": [
+          "fatha",
+          "damma",
+          "kasra",
+          "sukun"
+        ]
+      }
+    },
+    {
+      "type": "match",
+      "name": "مطابقة الحرف بالصورة",
+      "config": {
+        "type": "letter_image"
+      }
+    },
+    {
+      "type": "find",
+      "name": "ابحث عن الحرف",
+      "config": {
+        "gridSize": 12
+      }
+    },
+    {
+      "type": "color",
+      "name": "تلوين الصورة",
+      "config": {}
+    }
+  ],
+  "reviewGame": {
+    "type": "bingo",
+    "name": "بنغو الحروف",
+    "config": {
+      "letters": [
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ"
+      ]
+    }
+  },
+  "montessoriTip": "دع الطفل يمسح حرف 'ن' بإصبعه على ورقة صنفرة ويقول: 'ن ن ن... نمر' - يربط الحرف بالصوت والصورة الحقيقية.",
+  "audioUrls": {
+    "letter": "/audio/letters/nun.mp3",
+    "words": [
+      "/audio/words/ن/نجم.mp3",
+      "/audio/words/ن/نحلة.mp3",
+      "/audio/words/ن/نخلة.mp3",
+      "/audio/words/ن/نملة.mp3",
+      "/audio/words/ن/نهر.mp3"
+    ],
+    "encouragement": {
+      "correct": "/audio/encouragement/correct.mp3",
+      "wrong": "/audio/encouragement/wrong.mp3",
+      "complete": "/audio/encouragement/complete.mp3"
+    }
+  },
+  "matchWords": [
+    {
+      "id": "نون_1_form",
+      "arabic": "نجم",
+      "transliteration": "najm",
+      "english": "Star",
+      "position": "initial",
+      "syllables": [],
+      "image": "⭐"
+    },
+    {
+      "id": "نون_1",
+      "arabic": "عنب",
+      "transliteration": "inab",
+      "english": "Grapes",
+      "position": "medial",
+      "syllables": [],
+      "image": "🍇"
+    },
+    {
+      "id": "نون_2",
+      "arabic": "زيتون",
+      "transliteration": "zaytun",
+      "english": "Olives",
+      "position": "final",
+      "syllables": [],
+      "image": "🫒"
+    }
+  ]
+}

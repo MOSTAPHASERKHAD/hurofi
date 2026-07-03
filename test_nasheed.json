@@ -1,0 +1,25 @@
+{
+  "model": "acemusic/acestep-v15-turbo",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Arabic children's nasheed, happy, educational, simple melody, kids song"
+    }
+  ],
+  "modalities": ["audio"],
+  "stream": false,
+  "task_type": "text2music",
+  "thinking": true,
+  "temperature": 0.85,
+  "use_cot_caption": true,
+  "use_cot_language": true,
+  "use_cot_metas": true,
+  "guidance_scale": 7.0,
+  "audio_config": {
+    "format": "mp3",
+    "vocal_language": "ar",
+    "instrumental": false,
+    "duration": 20
+  },
+  "lyrics": "[Verse]\nألف أرنب يجري يلعب\nيأكل جزراً كي لا يتعب\n[Chorus]\nحرف ألف حرف ألف\nالحروف حروف العربية"
+}

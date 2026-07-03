@@ -1,0 +1,180 @@
+{
+  "id": 21,
+  "letter": "ق",
+  "name": "قاف",
+  "forms": {
+    "isolated": "ق",
+    "initial": "قـ",
+    "medial": "ـقـ",
+    "final": "ـق"
+  },
+  "words": [
+    {
+      "id": "قاف_1",
+      "arabic": "قارب",
+      "transliteration": "qarib",
+      "english": "Boat",
+      "position": "initial",
+      "syllables": [],
+      "image": "⛵"
+    },
+    {
+      "id": "قاف_2",
+      "arabic": "قبعة",
+      "transliteration": "qubba'ah",
+      "english": "Hat",
+      "position": "initial",
+      "syllables": [],
+      "image": "🧢"
+    },
+    {
+      "id": "قاف_3",
+      "arabic": "قطة",
+      "transliteration": "qittah",
+      "english": "Cat",
+      "position": "initial",
+      "syllables": [],
+      "image": "🐱"
+    },
+    {
+      "id": "قاف_4",
+      "arabic": "قلم",
+      "transliteration": "qalam",
+      "english": "Pen",
+      "position": "initial",
+      "syllables": [],
+      "image": "🖊️"
+    },
+    {
+      "id": "قاف_5",
+      "arabic": "قمر",
+      "transliteration": "qamar",
+      "english": "Moon",
+      "position": "initial",
+      "syllables": [],
+      "image": "🌙"
+    }
+  ],
+  "phonemes": [
+    {
+      "sound": "قَ",
+      "diacritic": "فتحة",
+      "audio": "/audio/phonemes/qaaf_fatha.mp3"
+    },
+    {
+      "sound": "قُ",
+      "diacritic": "ضمة",
+      "audio": "/audio/phonemes/qaaf_damma.mp3"
+    },
+    {
+      "sound": "قِ",
+      "diacritic": "كسرة",
+      "audio": "/audio/phonemes/qaaf_kasra.mp3"
+    },
+    {
+      "sound": "قْ",
+      "diacritic": "سكون",
+      "audio": "/audio/phonemes/qaaf_sukun.mp3"
+    }
+  ],
+  "activities": [
+    {
+      "type": "trace",
+      "name": "تتبع الحرف",
+      "config": {
+        "difficulty": "guided"
+      }
+    },
+    {
+      "type": "phonics_wheel",
+      "name": "عجلة الصوتيات",
+      "config": {
+        "diacritics": [
+          "fatha",
+          "damma",
+          "kasra",
+          "sukun"
+        ]
+      }
+    },
+    {
+      "type": "match",
+      "name": "مطابقة الحرف بالصورة",
+      "config": {
+        "type": "letter_image"
+      }
+    },
+    {
+      "type": "find",
+      "name": "ابحث عن الحرف",
+      "config": {
+        "gridSize": 12
+      }
+    },
+    {
+      "type": "color",
+      "name": "تلوين الصورة",
+      "config": {}
+    }
+  ],
+  "reviewGame": {
+    "type": "bingo",
+    "name": "بنغو الحروف",
+    "config": {
+      "letters": [
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ"
+      ]
+    }
+  },
+  "montessoriTip": "دع الطفل يمسح حرف 'ق' بإصبعه على ورقة صنفرة ويقول: 'ق ق ق... قرد' - يربط الحرف بالصوت والصورة الحقيقية.",
+  "audioUrls": {
+    "letter": "/audio/letters/qaaf.mp3",
+    "words": [
+      "/audio/words/ق/قارب.mp3",
+      "/audio/words/ق/قبعة.mp3",
+      "/audio/words/ق/قطة.mp3",
+      "/audio/words/ق/قلم.mp3",
+      "/audio/words/ق/قمر.mp3"
+    ],
+    "encouragement": {
+      "correct": "/audio/encouragement/correct.mp3",
+      "wrong": "/audio/encouragement/wrong.mp3",
+      "complete": "/audio/encouragement/complete.mp3"
+    }
+  },
+  "matchWords": [
+    {
+      "id": "قاف_1_form",
+      "arabic": "قارب",
+      "transliteration": "qarib",
+      "english": "Boat",
+      "position": "initial",
+      "syllables": [],
+      "image": "⛵"
+    },
+    {
+      "id": "قاف_1",
+      "arabic": "بقرة",
+      "transliteration": "baqarah",
+      "english": "Cow",
+      "position": "medial",
+      "syllables": [],
+      "image": "🐄"
+    },
+    {
+      "id": "قاف_2",
+      "arabic": "طريق",
+      "transliteration": "tariq",
+      "english": "Road",
+      "position": "final",
+      "syllables": [],
+      "image": "🛣️"
+    }
+  ]
+}

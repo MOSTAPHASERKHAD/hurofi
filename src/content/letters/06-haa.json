@@ -1,0 +1,180 @@
+{
+  "id": 6,
+  "letter": "ح",
+  "name": "حاء",
+  "forms": {
+    "isolated": "ح",
+    "initial": "حـ",
+    "medial": "ـحـ",
+    "final": "ـح"
+  },
+  "words": [
+    {
+      "id": "حاء_1",
+      "arabic": "حديقة",
+      "transliteration": "hadiqa",
+      "english": "Garden",
+      "position": "initial",
+      "syllables": [],
+      "image": "🌹"
+    },
+    {
+      "id": "حاء_2",
+      "arabic": "حذاء",
+      "transliteration": "hidha'",
+      "english": "Shoe",
+      "position": "initial",
+      "syllables": [],
+      "image": "👟"
+    },
+    {
+      "id": "حاء_3",
+      "arabic": "حصان",
+      "transliteration": "hisan",
+      "english": "Horse",
+      "position": "initial",
+      "syllables": [],
+      "image": "🐴"
+    },
+    {
+      "id": "حاء_4",
+      "arabic": "حليب",
+      "transliteration": "halib",
+      "english": "Milk",
+      "position": "initial",
+      "syllables": [],
+      "image": "🥛"
+    },
+    {
+      "id": "حاء_5",
+      "arabic": "حمامة",
+      "transliteration": "hamama",
+      "english": "Pigeon",
+      "position": "initial",
+      "syllables": [],
+      "image": "🕊️"
+    }
+  ],
+  "phonemes": [
+    {
+      "sound": "حَ",
+      "diacritic": "فتحة",
+      "audio": "/audio/phonemes/haa_fatha.mp3"
+    },
+    {
+      "sound": "حُ",
+      "diacritic": "ضمة",
+      "audio": "/audio/phonemes/haa_damma.mp3"
+    },
+    {
+      "sound": "حِ",
+      "diacritic": "كسرة",
+      "audio": "/audio/phonemes/haa_kasra.mp3"
+    },
+    {
+      "sound": "حْ",
+      "diacritic": "سكون",
+      "audio": "/audio/phonemes/haa_sukun.mp3"
+    }
+  ],
+  "activities": [
+    {
+      "type": "trace",
+      "name": "تتبع الحرف",
+      "config": {
+        "difficulty": "guided"
+      }
+    },
+    {
+      "type": "phonics_wheel",
+      "name": "عجلة الصوتيات",
+      "config": {
+        "diacritics": [
+          "fatha",
+          "damma",
+          "kasra",
+          "sukun"
+        ]
+      }
+    },
+    {
+      "type": "match",
+      "name": "مطابقة الحرف بالصورة",
+      "config": {
+        "type": "letter_image"
+      }
+    },
+    {
+      "type": "find",
+      "name": "ابحث عن الحرف",
+      "config": {
+        "gridSize": 12
+      }
+    },
+    {
+      "type": "color",
+      "name": "تلوين الصورة",
+      "config": {}
+    }
+  ],
+  "reviewGame": {
+    "type": "bingo",
+    "name": "بنغو الحروف",
+    "config": {
+      "letters": [
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ"
+      ]
+    }
+  },
+  "montessoriTip": "دع الطفل يمسح حرف 'ح' بإصبعه على ورقة صنفرة ويقول: 'ح ح ح... حصان' - يربط الحرف بالصوت والصورة الحقيقية.",
+  "audioUrls": {
+    "letter": "/audio/letters/haa.mp3",
+    "words": [
+      "/audio/words/ح/حديقة.mp3",
+      "/audio/words/ح/حذاء.mp3",
+      "/audio/words/ح/حصان.mp3",
+      "/audio/words/ح/حليب.mp3",
+      "/audio/words/ح/حمامة.mp3"
+    ],
+    "encouragement": {
+      "correct": "/audio/encouragement/correct.mp3",
+      "wrong": "/audio/encouragement/wrong.mp3",
+      "complete": "/audio/encouragement/complete.mp3"
+    }
+  },
+  "matchWords": [
+    {
+      "id": "حاء_1_form",
+      "arabic": "حديقة",
+      "transliteration": "hadiqa",
+      "english": "Garden",
+      "position": "initial",
+      "syllables": [],
+      "image": "🌹"
+    },
+    {
+      "id": "حاء_1",
+      "arabic": "نحل",
+      "transliteration": "nahl",
+      "english": "Bees",
+      "position": "medial",
+      "syllables": [],
+      "image": "🐝"
+    },
+    {
+      "id": "حاء_2",
+      "arabic": "صباح",
+      "transliteration": "sabah",
+      "english": "Morning",
+      "position": "final",
+      "syllables": [],
+      "image": "☀️"
+    }
+  ]
+}

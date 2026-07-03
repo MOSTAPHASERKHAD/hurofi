@@ -1,0 +1,180 @@
+{
+  "id": 11,
+  "letter": "ز",
+  "name": "زاي",
+  "forms": {
+    "isolated": "ز",
+    "initial": "ز",
+    "medial": "ـز",
+    "final": "ـز"
+  },
+  "words": [
+    {
+      "id": "زاي_1",
+      "arabic": "زر",
+      "transliteration": "zirr",
+      "english": "Button",
+      "position": "initial",
+      "syllables": [],
+      "image": "🔘"
+    },
+    {
+      "id": "زاي_2",
+      "arabic": "زرافة",
+      "transliteration": "zarafah",
+      "english": "Giraffe",
+      "position": "initial",
+      "syllables": [],
+      "image": "🦒"
+    },
+    {
+      "id": "زاي_3",
+      "arabic": "زرع",
+      "transliteration": "zar'",
+      "english": "Plant",
+      "position": "initial",
+      "syllables": [],
+      "image": "🌱"
+    },
+    {
+      "id": "زاي_4",
+      "arabic": "زهرة",
+      "transliteration": "zahrah",
+      "english": "Flower",
+      "position": "initial",
+      "syllables": [],
+      "image": "🌸"
+    },
+    {
+      "id": "زاي_5",
+      "arabic": "زيتون",
+      "transliteration": "zaytun",
+      "english": "Olives",
+      "position": "initial",
+      "syllables": [],
+      "image": "🫒"
+    }
+  ],
+  "phonemes": [
+    {
+      "sound": "زَ",
+      "diacritic": "فتحة",
+      "audio": "/audio/phonemes/zay_fatha.mp3"
+    },
+    {
+      "sound": "زُ",
+      "diacritic": "ضمة",
+      "audio": "/audio/phonemes/zay_damma.mp3"
+    },
+    {
+      "sound": "زِ",
+      "diacritic": "كسرة",
+      "audio": "/audio/phonemes/zay_kasra.mp3"
+    },
+    {
+      "sound": "زْ",
+      "diacritic": "سكون",
+      "audio": "/audio/phonemes/zay_sukun.mp3"
+    }
+  ],
+  "activities": [
+    {
+      "type": "trace",
+      "name": "تتبع الحرف",
+      "config": {
+        "difficulty": "guided"
+      }
+    },
+    {
+      "type": "phonics_wheel",
+      "name": "عجلة الصوتيات",
+      "config": {
+        "diacritics": [
+          "fatha",
+          "damma",
+          "kasra",
+          "sukun"
+        ]
+      }
+    },
+    {
+      "type": "match",
+      "name": "مطابقة الحرف بالصورة",
+      "config": {
+        "type": "letter_image"
+      }
+    },
+    {
+      "type": "find",
+      "name": "ابحث عن الحرف",
+      "config": {
+        "gridSize": 12
+      }
+    },
+    {
+      "type": "color",
+      "name": "تلوين الصورة",
+      "config": {}
+    }
+  ],
+  "reviewGame": {
+    "type": "bingo",
+    "name": "بنغو الحروف",
+    "config": {
+      "letters": [
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ"
+      ]
+    }
+  },
+  "montessoriTip": "دع الطفل يمسح حرف 'ز' بإصبعه على ورقة صنفرة ويقول: 'ز ز ز... زرافة' - يربط الحرف بالصوت والصورة الحقيقية.",
+  "audioUrls": {
+    "letter": "/audio/letters/zay.mp3",
+    "words": [
+      "/audio/words/ز/زر.mp3",
+      "/audio/words/ز/زرافة.mp3",
+      "/audio/words/ز/زرع.mp3",
+      "/audio/words/ز/زهرة.mp3",
+      "/audio/words/ز/زيتون.mp3"
+    ],
+    "encouragement": {
+      "correct": "/audio/encouragement/correct.mp3",
+      "wrong": "/audio/encouragement/wrong.mp3",
+      "complete": "/audio/encouragement/complete.mp3"
+    }
+  },
+  "matchWords": [
+    {
+      "id": "زاي_1_form",
+      "arabic": "زر",
+      "transliteration": "zirr",
+      "english": "Button",
+      "position": "initial",
+      "syllables": [],
+      "image": "🔘"
+    },
+    {
+      "id": "زاي_1",
+      "arabic": "غزال",
+      "transliteration": "ghazal",
+      "english": "Gazelle",
+      "position": "medial",
+      "syllables": [],
+      "image": "🦌"
+    },
+    {
+      "id": "زاي_2",
+      "arabic": "موز",
+      "transliteration": "mawz",
+      "english": "Banana",
+      "position": "final",
+      "syllables": [],
+      "image": "🍌"
+    }
+  ]
+}

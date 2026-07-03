@@ -1,0 +1,180 @@
+{
+  "id": 9,
+  "letter": "ذ",
+  "name": "ذال",
+  "forms": {
+    "isolated": "ذ",
+    "initial": "ذ",
+    "medial": "ـذ",
+    "final": "ـذ"
+  },
+  "words": [
+    {
+      "id": "ذال_1",
+      "arabic": "ذئب",
+      "transliteration": "dhi'b",
+      "english": "Wolf",
+      "position": "initial",
+      "syllables": [],
+      "image": "🐺"
+    },
+    {
+      "id": "ذال_2",
+      "arabic": "ذراع",
+      "transliteration": "dhira'",
+      "english": "Arm",
+      "position": "initial",
+      "syllables": [],
+      "image": "💪"
+    },
+    {
+      "id": "ذال_3",
+      "arabic": "ذرة",
+      "transliteration": "dhurah",
+      "english": "Corn",
+      "position": "initial",
+      "syllables": [],
+      "image": "🌽"
+    },
+    {
+      "id": "ذال_4",
+      "arabic": "ذهب",
+      "transliteration": "dhahab",
+      "english": "Gold",
+      "position": "initial",
+      "syllables": [],
+      "image": "🪙"
+    },
+    {
+      "id": "ذال_5",
+      "arabic": "ذيل",
+      "transliteration": "dhayl",
+      "english": "Tail",
+      "position": "initial",
+      "syllables": [],
+      "image": "🐕"
+    }
+  ],
+  "phonemes": [
+    {
+      "sound": "ذَ",
+      "diacritic": "فتحة",
+      "audio": "/audio/phonemes/dhal_fatha.mp3"
+    },
+    {
+      "sound": "ذُ",
+      "diacritic": "ضمة",
+      "audio": "/audio/phonemes/dhal_damma.mp3"
+    },
+    {
+      "sound": "ذِ",
+      "diacritic": "كسرة",
+      "audio": "/audio/phonemes/dhal_kasra.mp3"
+    },
+    {
+      "sound": "ذْ",
+      "diacritic": "سكون",
+      "audio": "/audio/phonemes/dhal_sukun.mp3"
+    }
+  ],
+  "activities": [
+    {
+      "type": "trace",
+      "name": "تتبع الحرف",
+      "config": {
+        "difficulty": "guided"
+      }
+    },
+    {
+      "type": "phonics_wheel",
+      "name": "عجلة الصوتيات",
+      "config": {
+        "diacritics": [
+          "fatha",
+          "damma",
+          "kasra",
+          "sukun"
+        ]
+      }
+    },
+    {
+      "type": "match",
+      "name": "مطابقة الحرف بالصورة",
+      "config": {
+        "type": "letter_image"
+      }
+    },
+    {
+      "type": "find",
+      "name": "ابحث عن الحرف",
+      "config": {
+        "gridSize": 12
+      }
+    },
+    {
+      "type": "color",
+      "name": "تلوين الصورة",
+      "config": {}
+    }
+  ],
+  "reviewGame": {
+    "type": "bingo",
+    "name": "بنغو الحروف",
+    "config": {
+      "letters": [
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ"
+      ]
+    }
+  },
+  "montessoriTip": "دع الطفل يمسح حرف 'ذ' بإصبعه على ورقة صنفرة ويقول: 'ذ ذ ذ... ذئب' - يربط الحرف بالصوت والصورة الحقيقية.",
+  "audioUrls": {
+    "letter": "/audio/letters/dhal.mp3",
+    "words": [
+      "/audio/words/ذ/ذئب.mp3",
+      "/audio/words/ذ/ذراع.mp3",
+      "/audio/words/ذ/ذرة.mp3",
+      "/audio/words/ذ/ذهب.mp3",
+      "/audio/words/ذ/ذيل.mp3"
+    ],
+    "encouragement": {
+      "correct": "/audio/encouragement/correct.mp3",
+      "wrong": "/audio/encouragement/wrong.mp3",
+      "complete": "/audio/encouragement/complete.mp3"
+    }
+  },
+  "matchWords": [
+    {
+      "id": "ذال_1_form",
+      "arabic": "ذئب",
+      "transliteration": "dhi'b",
+      "english": "Wolf",
+      "position": "initial",
+      "syllables": [],
+      "image": "🐺"
+    },
+    {
+      "id": "ذال_1",
+      "arabic": "أذن",
+      "transliteration": "udhun",
+      "english": "Ear",
+      "position": "medial",
+      "syllables": [],
+      "image": "👂"
+    },
+    {
+      "id": "ذال_2",
+      "arabic": "لذيذ",
+      "transliteration": "ladhidh",
+      "english": "Delicious",
+      "position": "final",
+      "syllables": [],
+      "image": "🍰"
+    }
+  ]
+}

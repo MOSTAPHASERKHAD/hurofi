@@ -1,0 +1,180 @@
+{
+  "id": 24,
+  "letter": "م",
+  "name": "ميم",
+  "forms": {
+    "isolated": "م",
+    "initial": "مـ",
+    "medial": "ـمـ",
+    "final": "ـم"
+  },
+  "words": [
+    {
+      "id": "ميم_1",
+      "arabic": "مدرسة",
+      "transliteration": "madrasah",
+      "english": "School",
+      "position": "initial",
+      "syllables": [],
+      "image": "🏫"
+    },
+    {
+      "id": "ميم_2",
+      "arabic": "مسجد",
+      "transliteration": "masjid",
+      "english": "Mosque",
+      "position": "initial",
+      "syllables": [],
+      "image": "🕌"
+    },
+    {
+      "id": "ميم_3",
+      "arabic": "مفتاح",
+      "transliteration": "miftah",
+      "english": "Key",
+      "position": "initial",
+      "syllables": [],
+      "image": "🔑"
+    },
+    {
+      "id": "ميم_4",
+      "arabic": "ملعقة",
+      "transliteration": "mil'qah",
+      "english": "Spoon",
+      "position": "initial",
+      "syllables": [],
+      "image": "🥄"
+    },
+    {
+      "id": "ميم_5",
+      "arabic": "موز",
+      "transliteration": "mawz",
+      "english": "Banana",
+      "position": "initial",
+      "syllables": [],
+      "image": "🍌"
+    }
+  ],
+  "phonemes": [
+    {
+      "sound": "مَ",
+      "diacritic": "فتحة",
+      "audio": "/audio/phonemes/meem_fatha.mp3"
+    },
+    {
+      "sound": "مُ",
+      "diacritic": "ضمة",
+      "audio": "/audio/phonemes/meem_damma.mp3"
+    },
+    {
+      "sound": "مِ",
+      "diacritic": "كسرة",
+      "audio": "/audio/phonemes/meem_kasra.mp3"
+    },
+    {
+      "sound": "مْ",
+      "diacritic": "سكون",
+      "audio": "/audio/phonemes/meem_sukun.mp3"
+    }
+  ],
+  "activities": [
+    {
+      "type": "trace",
+      "name": "تتبع الحرف",
+      "config": {
+        "difficulty": "guided"
+      }
+    },
+    {
+      "type": "phonics_wheel",
+      "name": "عجلة الصوتيات",
+      "config": {
+        "diacritics": [
+          "fatha",
+          "damma",
+          "kasra",
+          "sukun"
+        ]
+      }
+    },
+    {
+      "type": "match",
+      "name": "مطابقة الحرف بالصورة",
+      "config": {
+        "type": "letter_image"
+      }
+    },
+    {
+      "type": "find",
+      "name": "ابحث عن الحرف",
+      "config": {
+        "gridSize": 12
+      }
+    },
+    {
+      "type": "color",
+      "name": "تلوين الصورة",
+      "config": {}
+    }
+  ],
+  "reviewGame": {
+    "type": "bingo",
+    "name": "بنغو الحروف",
+    "config": {
+      "letters": [
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ"
+      ]
+    }
+  },
+  "montessoriTip": "دع الطفل يمسح حرف 'م' بإصبعه على ورقة صنفرة ويقول: 'م م م... موز' - يربط الحرف بالصوت والصورة الحقيقية.",
+  "audioUrls": {
+    "letter": "/audio/letters/meem.mp3",
+    "words": [
+      "/audio/words/م/مدرسة.mp3",
+      "/audio/words/م/مسجد.mp3",
+      "/audio/words/م/مفتاح.mp3",
+      "/audio/words/م/ملعقة.mp3",
+      "/audio/words/م/موز.mp3"
+    ],
+    "encouragement": {
+      "correct": "/audio/encouragement/correct.mp3",
+      "wrong": "/audio/encouragement/wrong.mp3",
+      "complete": "/audio/encouragement/complete.mp3"
+    }
+  },
+  "matchWords": [
+    {
+      "id": "ميم_1_form",
+      "arabic": "مدرسة",
+      "transliteration": "madrasah",
+      "english": "School",
+      "position": "initial",
+      "syllables": [],
+      "image": "🏫"
+    },
+    {
+      "id": "ميم_1",
+      "arabic": "سماء",
+      "transliteration": "sama'",
+      "english": "Sky",
+      "position": "medial",
+      "syllables": [],
+      "image": "☁️"
+    },
+    {
+      "id": "ميم_2",
+      "arabic": "فم",
+      "transliteration": "fam",
+      "english": "Mouth",
+      "position": "final",
+      "syllables": [],
+      "image": "👄"
+    }
+  ]
+}
