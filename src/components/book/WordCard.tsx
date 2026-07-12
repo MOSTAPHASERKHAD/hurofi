@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useAudio } from "@/hooks/useAudio";
+import WordIllustration from "../ui/WordIllustration";
 
 interface WordCardProps {
   arabic: string;
@@ -37,10 +38,12 @@ export default function WordCard({
       onClick={() => audioUrl && playFile(audioUrl)}
     >
       <div
-        className="w-24 h-24 rounded-2xl flex items-center justify-center text-4xl transition-colors duration-500"
+        className="w-24 h-24 rounded-2xl flex items-center justify-center text-4xl transition-colors duration-500 relative"
         style={{ backgroundColor: colorLight }}
       >
-        {image || "📝"}
+        <div className="absolute inset-0 p-3 opacity-90">
+          <WordIllustration word={arabic} fallbackImage={image} className="w-full h-full drop-shadow-sm" />
+        </div>
       </div>
       <p className="text-xl font-amiri font-bold transition-colors duration-500" style={{ color }}>
         {arabic}

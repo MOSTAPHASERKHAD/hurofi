@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Amiri, Inter } from "next/font/google";
 import "./globals.css";
+import UpdateChecker from "@/components/UpdateChecker";
 
 const amiri = Amiri({ subsets: ["arabic"], weight: ["400", "700"], variable: "--font-amiri" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -37,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className={`h-full antialiased ${amiri.variable} ${inter.variable}`}>
+    <html lang="ar" dir="rtl" className={`h-full antialiased ${amiri.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#7C3AED" />
         <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
@@ -68,7 +69,16 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-amiri bg-gradient-to-bl from-amber-50 to-orange-50 text-neutral-800">
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+              document.documentElement.classList.add('dark');
+            }
+          })();
+        `}} />
         {children}
+        <UpdateChecker />
         <Script
           strategy="afterInteractive"
           src="/sw-register.js"

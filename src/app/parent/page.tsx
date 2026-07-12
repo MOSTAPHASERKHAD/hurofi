@@ -77,7 +77,7 @@ export default function ParentDashboard() {
           <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
             <div className="text-4xl mb-2">📚</div>
             <div className="text-3xl font-bold text-blue-600">{completedCount}/28</div>
-            <div className="text-sm text-neutral-500">الحرف المكتملة</div>
+            <div className="text-sm text-neutral-500 font-inter">الحروف المكتملة</div>
           </div>
           <div className="bg-white rounded-2xl p-6 shadow-lg border border-yellow-100">
             <div className="text-4xl mb-2">⭐</div>
@@ -87,7 +87,15 @@ export default function ParentDashboard() {
           <div className="bg-white rounded-2xl p-6 shadow-lg border border-green-100">
             <div className="text-4xl mb-2">📊</div>
             <div className="text-3xl font-bold text-green-600">{percentage}%</div>
-            <div className="text-sm text-neutral-500">نسبة الإنجاز</div>
+            <div className="text-sm text-neutral-500 font-inter">نسبة الإنجاز</div>
+            {percentage === 100 && (
+              <div className="mt-2 flex flex-col items-center">
+                <div className="text-xs text-green-500 font-inter mb-1 animate-pulse">🎉 أحسنت!</div>
+                <Link href="/certificate" className="text-xs bg-green-500 text-white px-3 py-1 rounded-full hover:bg-green-600 shadow-sm transition-colors">
+                  طبع الشهادة 🖨️
+                </Link>
+              </div>
+            )}
           </div>
         </motion.div>
 
@@ -151,7 +159,7 @@ export default function ParentDashboard() {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-green-500 mt-1">✓</span>
-              <span>احتفل بالإنجازات وامنح الطفل نجوماً%</span>
+              <span>احتفل بالإنجازات وامنح الطفل نجوماً على كل حرف يُتقنه</span>
             </li>
           </ul>
         </motion.div>

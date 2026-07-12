@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">hurofi</string>
+    <string name="title_activity_main">hurofi</string>
+    <string name="package_name">com.nemerotique.hurofi</string>
+    <string name="custom_url_scheme">com.nemerotique.hurofi</string>
+</resources>

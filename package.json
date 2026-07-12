@@ -1,14 +1,16 @@
 {
   "name": "hurofi",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "release": "node scripts/release.mjs"
   },
   "dependencies": {
+    "@capacitor/core": "^8.4.1",
     "@types/howler": "^2.2.13",
     "framer-motion": "^12.42.0",
     "howler": "^2.2.4",
@@ -19,6 +21,8 @@
     "zustand": "^5.0.14"
   },
   "devDependencies": {
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/cli": "^8.4.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

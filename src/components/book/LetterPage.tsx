@@ -13,6 +13,7 @@ import NasheedRecorder from "./NasheedRecorder";
 import HomeButton from "../ui/HomeButton";
 import { useSound } from "@/lib/useSound";
 import { playNasheed, stopNasheed } from "@/lib/nasheed";
+import { usePremium } from "@/lib/usePremium";
 
 const TraceActivity = lazy(() => import("../activities/TraceActivity"));
 const MatchActivity = lazy(() => import("../activities/MatchActivity"));
@@ -73,6 +74,7 @@ export default function LetterPage({ data, letterId }: LetterPageProps) {
   const colors = LETTER_COLORS[letterId] || LETTER_COLORS[1];
   const { completeActivity, completeReview } = useProgress();
   const { muted, toggle: toggleMute } = useSound();
+  const { isPremium } = usePremium();
 
   const handleToggleMute = () => {
     toggleMute();
@@ -99,6 +101,27 @@ export default function LetterPage({ data, letterId }: LetterPageProps) {
       className="min-h-screen flex flex-col transition-colors duration-500"
       style={{ backgroundColor: colors.light }}
     >
+      {/* ─── Premium Lock Screen ─── */}
+      {!isPremium && letterId > 3 && (
+        <div className="fixed inset-0 z-50 bg-white/60 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 max-w-md w-full shadow-2xl text-center border-4 border-indigo-100 dark:border-indigo-900">
+            <span className="text-6xl block mb-4 animate-bounce">🔒</span>
+            <h2 className="text-2xl font-bold font-amiri text-indigo-900 dark:text-indigo-100 mb-2">عفواً، هذا الحرف مغلق!</h2>
+            <p className="text-neutral-600 dark:text-neutral-300 font-inter text-sm mb-6">
+              لقد استمتع طفلك بتعلم أول 3 حروف مجاناً! لفتح باقي الحروف الـ 28 وإكمال الرحلة، يرجى تفعيل النسخة الكاملة.
+            </p>
+            <div className="flex gap-3">
+              <Link href="/" className="flex-1 bg-neutral-100 dark:bg-slate-700 hover:bg-neutral-200 dark:hover:bg-slate-600 text-neutral-800 dark:text-neutral-200 py-3 rounded-xl font-bold transition-colors">
+                العودة للرئيسية
+              </Link>
+              <Link href="/unlock" className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-bold transition-colors shadow-md">
+                فتح التطبيق 👑
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
       <header
         className="py-4 px-4 border-b bg-white/80 backdrop-blur sticky top-0 z-50"
         style={{ borderColor: colors.primary + "30" }}

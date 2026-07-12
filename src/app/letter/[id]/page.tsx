@@ -16,6 +16,11 @@ for (let i = 1; i <= 28; i++) {
   const path = `@/content/letters/${padded}-${names[i]}.json`;
   importers[i] = () => import(path) as Promise<{ default: LetterContent }>;
 }
+export function generateStaticParams() {
+  return Array.from({ length: 28 }, (_, i) => ({
+    id: String(i + 1),
+  }));
+}
 
 export default async function LetterDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

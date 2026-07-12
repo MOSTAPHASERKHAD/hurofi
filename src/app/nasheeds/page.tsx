@@ -17,8 +17,8 @@ export default function NasheedsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/nasheeds")
-      .then(res => res.json())
+    fetch("/extra-nasheeds.json")
+      .then((res) => res.json())
       .then(data => {
         setNasheeds(data);
         setLoading(false);
