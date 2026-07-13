@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { useSyncExternalStore } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { LETTER_COLORS } from "@/lib/letterColors";
@@ -91,10 +90,12 @@ const LETTERS = [
   { id: 28, letter: "ي", name: "ياء" },
 ];
 
+const emptySubscribe = () => () => {};
+
 /* ─── هوك Hydration ─────────────────────────────── */
 function useHydrated() {
   return useSyncExternalStore(
-    () => () => {},
+    emptySubscribe,
     () => true,
     () => false
   );
@@ -289,15 +290,11 @@ export default function Home() {
 
   // أظهر شاشة الترحيب فقط في أول زيارة
   const [welcomed, setWelcomed] = useState(true);
-  useSyncExternalStore(
-    () => () => {},
-    () => {
-      const seen = localStorage.getItem("hurofi_welcomed");
-      if (!seen) setWelcomed(false);
-      return true;
-    },
-    () => true
-  );
+
+  useEffect(() => {
+    const seen = localStorage.getItem("hurofi_welcomed");
+    if (!seen) setWelcomed(false);
+  }, []);
 
   const handleWelcomeStart = () => {
     localStorage.setItem("hurofi_welcomed", "1");

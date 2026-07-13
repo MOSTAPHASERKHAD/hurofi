@@ -3,9 +3,11 @@
 import { useSyncExternalStore, useCallback } from "react";
 import { motion } from "framer-motion";
 
+const emptySubscribe = () => () => {};
+
 function useIsDark() {
   return useSyncExternalStore(
-    () => () => {},
+    emptySubscribe,
     () => {
       if (typeof document === "undefined") return false;
       return document.documentElement.classList.contains("dark");

@@ -7,9 +7,10 @@ import { LETTER_COLORS } from "@/lib/letterColors";
 import { useProgress } from "@/lib/useProgress";
 import HomeButton from "@/components/ui/HomeButton";
 
+const emptySubscribe = () => () => {};
 function useHydrated() {
   return useSyncExternalStore(
-    () => () => {},
+    emptySubscribe,
     () => true,
     () => false
   );
