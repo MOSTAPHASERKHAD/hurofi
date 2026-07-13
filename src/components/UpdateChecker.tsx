@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const CURRENT_VERSION = "1.0.0";
+import packageJson from "../../package.json";
+const CURRENT_VERSION = packageJson.version;
 const VERSION_URL =
   "https://raw.githubusercontent.com/MOSTAPHASERKHAD/hurofi/main/public/version.json";
 
