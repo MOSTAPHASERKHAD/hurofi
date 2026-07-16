@@ -1,7 +1,7 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "releaseDate": "2026-07-16",
-  "notes": "تحديث شامل: خريطة الحروف، الهمزة، والتحديث المباشر داخل التطبيق",
-  "apkUrl": "https://github.com/MOSTAPHASERKHAD/hurofi/releases/download/v1.2.0/hurofi-v1.2.0.apk",
+  "notes": "إصلاح مشكلة التحميل باستخدام CapacitorHttp",
+  "apkUrl": "https://github.com/MOSTAPHASERKHAD/hurofi/releases/download/v1.2.1/hurofi-v1.2.1.apk",
   "minBuild": 1
 }

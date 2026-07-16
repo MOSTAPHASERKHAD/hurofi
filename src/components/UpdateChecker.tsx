@@ -68,51 +68,43 @@ export default function UpdateChecker() {
     setErrorMsg("");
 
     try {
-      // أولاً: التحقق من وجود الملف على الخادم
-      let headCheck: Response;
-      try {
-        headCheck = await fetch(update.apkUrl, { method: "HEAD" });
-        if (!headCheck.ok) {
-          throw new Error(`الملف غير موجود على الخادم (${headCheck.status})`);
-        }
-      } catch (headErr) {
-        throw new Error(`تعذّر الوصول إلى رابط التحميل. تأكد من رفع الملف على GitHub Releases.`);
+      setProgress(10);
+
+      // استخدام CapacitorHttp الأصلي الذي يتجاوز قيود CORS ويتبع إعادة التوجيه
+      const { CapacitorHttp } = await import("@capacitor/core");
+      setProgress(20);
+
+      const response = await CapacitorHttp.get({
+        url: update.apkUrl,
+        responseType: "arraybuffer",
+      });
+
+      if (response.status !== 200) {
+        throw new Error(`فشل التحميل - الملف غير موجود على الخادم (${response.status}). تأكد من رفع الملف على GitHub Releases.`);
       }
 
-      // تحميل ملف APK مع متابعة التقدم
-      const response = await fetch(update.apkUrl);
-      if (!response.ok || !response.body) {
-        throw new Error(`فشل التحميل (${response.status} ${response.statusText})`);
-      }
-
-      const contentLength = Number(response.headers.get("content-length") || 0);
-      const reader = response.body.getReader();
-      const chunks: Uint8Array[] = [];
-      let received = 0;
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        chunks.push(value);
-        received += value.length;
-        if (contentLength > 0) {
-          setProgress(Math.round((received / contentLength) * 100));
-        }
-      }
+      setProgress(70);
+      setPhase("installing");
 
       // تحويل البيانات إلى base64
-      setPhase("installing");
-      const blob = new Blob(chunks as unknown as BlobPart[], { type: "application/vnd.android.package-archive" });
-      const arrayBuffer = await blob.arrayBuffer();
-      const uint8 = new Uint8Array(arrayBuffer);
-      let binary = "";
-      const chunkSize = 8192;
-      for (let i = 0; i < uint8.length; i += chunkSize) {
-        binary += String.fromCharCode(...uint8.subarray(i, i + chunkSize));
+      const data = response.data;
+      let base64: string;
+      if (typeof data === "string") {
+        base64 = data;
+      } else {
+        // ArrayBuffer → base64
+        const uint8 = new Uint8Array(data as ArrayBuffer);
+        let binary = "";
+        const chunkSize = 8192;
+        for (let i = 0; i < uint8.length; i += chunkSize) {
+          binary += String.fromCharCode(...uint8.subarray(i, i + chunkSize));
+        }
+        base64 = btoa(binary);
       }
-      const base64 = btoa(binary);
 
-      // حفظ الملف في ذاكرة الجهاز عبر Capacitor Filesystem
+      setProgress(90);
+
+      // حفظ الملف في ذاكرة الجهاز
       const { Filesystem, Directory } = await import("@capacitor/filesystem");
       await Filesystem.writeFile({
         path: "hurofi-update.apk",
@@ -120,13 +112,14 @@ export default function UpdateChecker() {
         directory: Directory.Cache,
       });
 
-      // الحصول على مسار الملف
       const fileUri = await Filesystem.getUri({
         path: "hurofi-update.apk",
         directory: Directory.Cache,
       });
 
-      // فتح ملف APK مباشرة عبر نظام التثبيت الأندرويد (بدون متصفح)
+      setProgress(100);
+
+      // فتح مثبّت أندرويد مباشرة
       const { FileOpener } = await import("@capacitor-community/file-opener");
       await FileOpener.open({
         filePath: fileUri.uri,
@@ -139,10 +132,12 @@ export default function UpdateChecker() {
 
     } catch (e) {
       console.error("خطأ في التحديث:", e);
-      setErrorMsg("حدث خطأ أثناء التحميل. تحقق من الاتصال وحاول مجدداً.");
+      const msg = e instanceof Error ? e.message : "خطأ غير معروف";
+      setErrorMsg(msg);
       setPhase("error");
     }
   };
+
 
   if (!update || dismissed) return null;
 
