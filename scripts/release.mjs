@@ -50,7 +50,27 @@ console.log("\n📱 مزامنة Capacitor...");
 execSync("npx cap sync android", { cwd: root, stdio: "inherit" });
 console.log("✅ اكتملت المزامنة");
 
-// 5. رفع على GitHub
+// 5. بناء ملف APK
+console.log("\n⚙️  بناء ملف APK (جاري استخدام Java الخاص بـ Android Studio)...");
+try {
+  // استخدام الجافا المرفقة مع أندرويد ستوديو
+  execSync(
+    `$env:JAVA_HOME = "C:\\Program Files\\Android\\Android Studio\\jbr"; cd android; ./gradlew assembleRelease`,
+    { cwd: root, stdio: "inherit", shell: "powershell.exe" }
+  );
+  
+  // نقل الملف لسطح المكتب وإعادة تسميته
+  console.log("\n🚚 نقل الملف إلى سطح المكتب...");
+  execSync(
+    `Copy-Item -Force "android\\app\\build\\outputs\\apk\\release\\app-release.apk" -Destination "$([Environment]::GetFolderPath('Desktop'))\\app-release.apk"`,
+    { cwd: root, stdio: "inherit", shell: "powershell.exe" }
+  );
+  console.log("✅ تم تجهيز ملف app-release.apk على سطح المكتب");
+} catch (e) {
+  console.error("❌ حدث خطأ أثناء بناء الـ APK. يمكنك بناؤه من Android Studio يدوياً.");
+}
+
+// 6. رفع على GitHub
 console.log("\n📤 رفع التغييرات على GitHub...");
 execSync("git add -A", { cwd: root, stdio: "inherit" });
 execSync(`git commit -m "🔖 release: v${newVersion} - ${releaseNotes}"`, {
@@ -62,17 +82,28 @@ execSync(`git tag v${newVersion}`, { cwd: root, stdio: "inherit" });
 execSync(`git push origin v${newVersion}`, { cwd: root, stdio: "inherit" });
 console.log("✅ تم الرفع على GitHub");
 
+// 7. فتح صفحة جيتهاب تلقائياً
+console.log("\n🌐 جاري فتح صفحة إضافة التحديث في جيتهاب...");
+try {
+  const url = `https://github.com/MOSTAPHASERKHAD/hurofi/releases/new?tag=v${newVersion}&title=تحديث+${newVersion}&body=${encodeURIComponent(releaseNotes)}`;
+  execSync(`Start-Process "${url}"`, { cwd: root, shell: "powershell.exe" });
+} catch (e) {
+  // تجاهل إذا لم يفتح المتصفح
+}
+
 console.log(`
 ╔════════════════════════════════════════╗
-║   ✅ تم نشر الإصدار ${newVersion} بنجاح!     ║
+║   ✅ تم تجهيز التحديث ${newVersion} بنجاح!   ║
 ╠════════════════════════════════════════╣
 ║                                        ║
-║  التطبيقات القديمة ستتلقى إشعاراً      ║
-║  بالتحديث عند فتح التطبيق              ║
+║  تم رفع التغييرات إلى GitHub!          ║
+║  وملف التحديث موجود على سطح مكتبك      ║
+║  باسم: app-release.apk                 ║
 ║                                        ║
-║  الخطوة التالية:                       ║
-║  ابنِ APK جديد من Android Studio       ║
-║  وارفعه على Amazon Appstore            ║
-║                                        ║
+║  الخطوة الأخيرة:                       ║
+║  ستُفتح الآن صفحة جيتهاب تلقائياً،     ║
+║  كل ما عليك هو سحب الملف من سطح المكتب ║
+║  وإفلاته في الصفحة ثم الضغط على:       ║
+║  Publish release                       ║
 ╚════════════════════════════════════════╝
 `);
