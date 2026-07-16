@@ -85,8 +85,8 @@ console.log("✅ تم الرفع على GitHub");
 // 7. فتح صفحة جيتهاب تلقائياً
 console.log("\n🌐 جاري فتح صفحة إضافة التحديث في جيتهاب...");
 try {
-  const url = `https://github.com/MOSTAPHASERKHAD/hurofi/releases/new?tag=v${newVersion}&title=تحديث+${newVersion}&body=${encodeURIComponent(releaseNotes)}`;
-  execSync(`Start-Process "${url}"`, { cwd: root, shell: "powershell.exe" });
+  const url = `https://github.com/MOSTAPHASERKHAD/hurofi/releases/new?tag=v${newVersion}&title=%D8%AA%D8%AD%D8%AF%D9%8A%D8%AB+${newVersion}&body=${encodeURIComponent(releaseNotes)}`;
+  execSync(`Start-Process -FilePath "cmd.exe" -ArgumentList "/c", "start", "${url}"`, { cwd: root, shell: "powershell.exe" });
 } catch (e) {
   // تجاهل إذا لم يفتح المتصفح
 }

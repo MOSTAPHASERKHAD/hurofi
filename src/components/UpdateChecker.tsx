@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import packageJson from "../../package.json";
 const CURRENT_VERSION = packageJson.version;
+const APK_URL =
+  "https://github.com/MOSTAPHASERKHAD/hurofi/releases/latest/download/app-release.apk";
 const VERSION_URL =
   "https://raw.githubusercontent.com/MOSTAPHASERKHAD/hurofi/main/public/version.json";
 
@@ -18,12 +20,17 @@ function compareVersions(v1: string, v2: string): number {
   return 0;
 }
 
+type Phase = "idle" | "downloading" | "installing" | "error";
+
 export default function UpdateChecker() {
   const [update, setUpdate] = useState<{
     version: string;
     notes: string;
   } | null>(null);
   const [dismissed, setDismissed] = useState(false);
+  const [phase, setPhase] = useState<Phase>("idle");
+  const [progress, setProgress] = useState(0);
+  const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     // فقط داخل Capacitor (التطبيق الأندرويد)
@@ -43,14 +50,94 @@ export default function UpdateChecker() {
           setUpdate({ version: data.version, notes: data.notes });
         }
       } catch {
-        // لا يوجد إنترنت أو خطأ في الشبكة - نتجاهل بصمت
+        // لا يوجد إنترنت أو خطأ في الشبكة
       }
     };
 
-    // انتظر 3 ثواني بعد فتح التطبيق
     const timer = setTimeout(checkUpdate, 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleUpdate = async () => {
+    setPhase("downloading");
+    setProgress(0);
+    setErrorMsg("");
+
+    try {
+      // تحميل ملف APK مع متابعة التقدم
+      const response = await fetch(APK_URL);
+      if (!response.ok || !response.body) {
+        throw new Error("فشل تحميل الملف");
+      }
+
+      const contentLength = Number(response.headers.get("content-length") || 0);
+      const reader = response.body.getReader();
+      const chunks: Uint8Array[] = [];
+      let received = 0;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        received += value.length;
+        if (contentLength > 0) {
+          setProgress(Math.round((received / contentLength) * 100));
+        }
+      }
+
+      // تحويل البيانات إلى base64
+      setPhase("installing");
+      const blob = new Blob(chunks as unknown as BlobPart[], { type: "application/vnd.android.package-archive" });
+      const arrayBuffer = await blob.arrayBuffer();
+      const uint8 = new Uint8Array(arrayBuffer);
+      let binary = "";
+      const chunkSize = 8192;
+      for (let i = 0; i < uint8.length; i += chunkSize) {
+        binary += String.fromCharCode(...uint8.subarray(i, i + chunkSize));
+      }
+      const base64 = btoa(binary);
+
+      // حفظ الملف في ذاكرة الجهاز عبر Capacitor Filesystem
+      const { Filesystem, Directory } = await import("@capacitor/filesystem");
+      await Filesystem.writeFile({
+        path: "hurofi-update.apk",
+        data: base64,
+        directory: Directory.Cache,
+      });
+
+      // الحصول على مسار الملف
+      const fileUri = await Filesystem.getUri({
+        path: "hurofi-update.apk",
+        directory: Directory.Cache,
+      });
+
+      // فتح الـ APK مباشرة لتثبيته (يفتح نافذة التثبيت الأندرويد)
+      const { CapacitorUtils } = (window as unknown as {
+        CapacitorUtils?: { openFile?: (opts: { path: string; mimeType: string }) => void };
+      });
+
+      if (CapacitorUtils?.openFile) {
+        CapacitorUtils.openFile({
+          path: fileUri.uri,
+          mimeType: "application/vnd.android.package-archive",
+        });
+      } else {
+        // استخدام Intent مباشرة عبر Capacitor
+        const { Capacitor } = await import("@capacitor/core");
+        if (Capacitor.isNativePlatform()) {
+          window.open(fileUri.uri, "_system");
+        }
+      }
+
+      setDismissed(true);
+      setPhase("idle");
+
+    } catch (e) {
+      console.error("خطأ في التحديث:", e);
+      setErrorMsg("حدث خطأ أثناء التحميل. تحقق من الاتصال وحاول مجدداً.");
+      setPhase("error");
+    }
+  };
 
   if (!update || dismissed) return null;
 
@@ -66,41 +153,73 @@ export default function UpdateChecker() {
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-indigo-200 dark:border-indigo-800 overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-3 flex items-center gap-3">
-            <span className="text-2xl">🚀</span>
+            <span className="text-2xl">
+              {phase === "downloading" ? "⬇️" : phase === "installing" ? "📦" : "🚀"}
+            </span>
             <div className="flex-1">
-              <p className="text-white font-bold text-sm">تحديث جديد متاح!</p>
+              <p className="text-white font-bold text-sm">
+                {phase === "downloading"
+                  ? `جاري التحميل... ${progress}%`
+                  : phase === "installing"
+                  ? "جاري تجهيز التثبيت..."
+                  : "تحديث جديد متاح!"}
+              </p>
               <p className="text-indigo-200 text-xs">الإصدار {update.version}</p>
             </div>
-            <button
-              onClick={() => setDismissed(true)}
-              className="text-white/70 hover:text-white text-xl leading-none"
-              aria-label="إغلاق"
-            >
-              ×
-            </button>
+            {phase === "idle" || phase === "error" ? (
+              <button
+                onClick={() => setDismissed(true)}
+                className="text-white/70 hover:text-white text-xl leading-none"
+                aria-label="إغلاق"
+              >
+                ×
+              </button>
+            ) : null}
           </div>
+
+          {/* شريط التقدم */}
+          {phase === "downloading" && (
+            <div className="h-1.5 bg-indigo-100">
+              <motion.div
+                className="h-full bg-indigo-500"
+                animate={{ width: `${progress}%` }}
+                transition={{ ease: "linear" }}
+              />
+            </div>
+          )}
 
           {/* Body */}
           <div className="px-4 py-3">
-            <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-3">
-              {update.notes}
-            </p>
+            {phase === "error" ? (
+              <p className="text-red-500 text-sm mb-3">{errorMsg}</p>
+            ) : (
+              <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-3">
+                {phase === "idle" ? update.notes : phase === "downloading" ? "لا تغلق التطبيق أثناء التحميل..." : "سيظهر لك مربع التثبيت خلال ثوانٍ..."}
+              </p>
+            )}
+
             <div className="flex gap-2">
-              <a
-                href="https://github.com/MOSTAPHASERKHAD/hurofi/releases/latest/download/app-release.apk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded-xl text-sm font-bold transition-colors"
-                onClick={() => setDismissed(true)}
-              >
-                تحديث الآن
-              </a>
-              <button
-                onClick={() => setDismissed(true)}
-                className="px-4 py-2 rounded-xl text-sm text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-slate-700 transition-colors"
-              >
-                لاحقاً
-              </button>
+              {(phase === "idle" || phase === "error") && (
+                <button
+                  onClick={handleUpdate}
+                  className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded-xl text-sm font-bold transition-colors"
+                >
+                  {phase === "error" ? "إعادة المحاولة" : "تحديث الآن"}
+                </button>
+              )}
+
+              {phase === "downloading" || phase === "installing" ? (
+                <div className="flex-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-center py-2 px-4 rounded-xl text-sm font-bold">
+                  {phase === "downloading" ? `${progress}% - جاري التحميل` : "جاري التجهيز..."}
+                </div>
+              ) : (
+                <button
+                  onClick={() => setDismissed(true)}
+                  className="px-4 py-2 rounded-xl text-sm text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-slate-700 transition-colors"
+                >
+                  لاحقاً
+                </button>
+              )}
             </div>
           </div>
         </div>
