@@ -87,10 +87,11 @@ export default function UpdateChecker() {
             </p>
             <div className="flex gap-2">
               <a
-                href="https://github.com/MOSTAPHASERKHAD/hurofi/releases/latest"
+                href="https://github.com/MOSTAPHASERKHAD/hurofi/releases/latest/download/app-release.apk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded-xl text-sm font-bold transition-colors"
+                onClick={() => setDismissed(true)}
               >
                 تحديث الآن
               </a>

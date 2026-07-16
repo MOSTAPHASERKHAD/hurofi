@@ -27,4 +27,5 @@ export const LETTER_COLORS: Record<number, { primary: string; light: string; dar
   26: { primary: "#CC7058", light: "#FFEEEA", dark: "#A85040", name: "سالمون غامق" },    // ه
   27: { primary: "#C06068", light: "#FFDEDF", dark: "#984850", name: "وردي غامق" },     // و
   28: { primary: "#8E5860", light: "#F0DDE1", dark: "#6E4048", name: "مايونيز" },       // ي
+  29: { primary: "#D32F2F", light: "#FFEBEE", dark: "#B71C1C", name: "أحمر داكن" },       // ء
 };

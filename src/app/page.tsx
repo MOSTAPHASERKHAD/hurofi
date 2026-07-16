@@ -88,6 +88,7 @@ const LETTERS = [
   { id: 26, letter: "ه", name: "هاء" },
   { id: 27, letter: "و", name: "واو" },
   { id: 28, letter: "ي", name: "ياء" },
+  { id: 29, letter: "ء", name: "همزة" },
 ];
 
 const emptySubscribe = () => () => {};
@@ -157,7 +158,7 @@ function ProgressBar() {
   const { totalCompletedLetters } = useProgress();
   const hydrated = useHydrated();
   const completed = hydrated ? totalCompletedLetters() : 0;
-  const pct = Math.round((completed / 28) * 100);
+  const pct = Math.round((completed / 29) * 100);
 
   if (!hydrated || completed === 0) return null;
 
@@ -170,7 +171,7 @@ function ProgressBar() {
       <div className="flex justify-between items-center mb-1">
         <span className="text-xs font-inter text-neutral-500">تقدمك</span>
         <span className="text-xs font-inter font-bold text-primary-600">
-          {completed}/28 حرفاً ✨
+          {completed}/29 حرفاً ✨
         </span>
       </div>
       <div className="w-full bg-primary-100 rounded-full h-2.5 overflow-hidden">
@@ -185,13 +186,40 @@ function ProgressBar() {
   );
 }
 
-/* ─── شبكة الحروف ────────────────────────────────── */
-function LetterGrid() {
+/* ─── خريطة الحروف المتعرجة ────────────────────────── */
+function LetterMap() {
   const { isPremium } = usePremium();
+  
+  // تقسيم الحروف إلى صفوف (كل صف 3 حروف)
+  const rows = [];
+  for (let i = 0; i < LETTERS.length; i += 3) {
+    rows.push(LETTERS.slice(i, i + 3));
+  }
+
   return (
-    <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-2 sm:gap-3">
-      {LETTERS.map((l, i) => (
-        <LetterCard key={l.id} l={l} i={i} isLocked={!isPremium && l.id > 3} />
+    <div className="flex flex-col-reverse gap-6 sm:gap-10 py-8 relative">
+      {/* خط المسار الخلفي */}
+      <div className="absolute top-0 bottom-0 left-1/2 w-4 bg-primary-100/50 dark:bg-primary-900/30 -translate-x-1/2 rounded-full z-0" />
+      
+      {rows.map((row, rowIndex) => (
+        <div 
+          key={rowIndex} 
+          className={`relative z-10 flex justify-center gap-4 sm:gap-12 px-2 ${
+            rowIndex % 2 === 1 ? "flex-row-reverse" : "flex-row"
+          }`}
+        >
+          {/* رسم خط متعرج خلفي للربط (اختياري) */}
+          <div className="absolute top-1/2 left-4 right-4 h-2 bg-primary-100/50 dark:bg-primary-900/30 -translate-y-1/2 rounded-full -z-10" />
+          
+          {row.map((l, i) => (
+             <div 
+               key={l.id} 
+               className={`transition-transform ${i === 1 ? "-translate-y-4" : "translate-y-4"}`}
+             >
+               <LetterCard l={l} i={l.id} isLocked={!isPremium && l.id > 3} />
+             </div>
+          ))}
+        </div>
       ))}
     </div>
   );
@@ -364,10 +392,10 @@ export default function Home() {
         {/* شبكة الحروف */}
         <section className="px-3 sm:px-4 pb-6">
           <div className="max-w-2xl mx-auto">
-            <p className="font-inter text-xs text-neutral-400 text-center mb-3">
-              أو اختر حرفاً تريد تعلمه
+            <p className="font-inter text-xs text-neutral-400 text-center mb-6">
+              ابدأ التسلق من أسفل الخريطة 🚀
             </p>
-            <LetterGrid />
+            <LetterMap />
           </div>
         </section>
 
