@@ -111,23 +111,13 @@ export default function UpdateChecker() {
         directory: Directory.Cache,
       });
 
-      // فتح الـ APK مباشرة لتثبيته (يفتح نافذة التثبيت الأندرويد)
-      const { CapacitorUtils } = (window as unknown as {
-        CapacitorUtils?: { openFile?: (opts: { path: string; mimeType: string }) => void };
+      // فتح ملف APK مباشرة عبر نظام التثبيت الأندرويد (بدون متصفح)
+      const { FileOpener } = await import("@capacitor-community/file-opener");
+      await FileOpener.open({
+        filePath: fileUri.uri,
+        contentType: "application/vnd.android.package-archive",
+        openWithDefault: true,
       });
-
-      if (CapacitorUtils?.openFile) {
-        CapacitorUtils.openFile({
-          path: fileUri.uri,
-          mimeType: "application/vnd.android.package-archive",
-        });
-      } else {
-        // استخدام Intent مباشرة عبر Capacitor
-        const { Capacitor } = await import("@capacitor/core");
-        if (Capacitor.isNativePlatform()) {
-          window.open(fileUri.uri, "_system");
-        }
-      }
 
       setDismissed(true);
       setPhase("idle");
