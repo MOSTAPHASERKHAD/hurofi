@@ -5,8 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import packageJson from "../../package.json";
 const CURRENT_VERSION = packageJson.version;
-const APK_URL =
-  "https://github.com/MOSTAPHASERKHAD/hurofi/releases/latest/download/app-release.apk";
 const VERSION_URL =
   "https://raw.githubusercontent.com/MOSTAPHASERKHAD/hurofi/main/public/version.json";
 
@@ -26,6 +24,7 @@ export default function UpdateChecker() {
   const [update, setUpdate] = useState<{
     version: string;
     notes: string;
+    apkUrl: string;
   } | null>(null);
   const [dismissed, setDismissed] = useState(false);
   const [phase, setPhase] = useState<Phase>("idle");
@@ -47,7 +46,11 @@ export default function UpdateChecker() {
         if (!res.ok) return;
         const data = await res.json();
         if (compareVersions(data.version, CURRENT_VERSION) > 0) {
-          setUpdate({ version: data.version, notes: data.notes });
+          setUpdate({
+            version: data.version,
+            notes: data.notes,
+            apkUrl: data.apkUrl || `https://github.com/MOSTAPHASERKHAD/hurofi/releases/download/v${data.version}/hurofi-v${data.version}.apk`,
+          });
         }
       } catch {
         // لا يوجد إنترنت أو خطأ في الشبكة
@@ -65,7 +68,7 @@ export default function UpdateChecker() {
 
     try {
       // تحميل ملف APK مع متابعة التقدم
-      const response = await fetch(APK_URL);
+      const response = await fetch(update.apkUrl);
       if (!response.ok || !response.body) {
         throw new Error("فشل تحميل الملف");
       }

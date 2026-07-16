@@ -22,16 +22,19 @@ if (!newVersion) {
 
 console.log(`\n🚀 بدء نشر الإصدار ${newVersion}...\n`);
 
-// 1. تحديث version.json
+// 1. تحديث version.json (يحتوي على اسم الملف الصحيح لكل إصدار)
+const apkFileName = `hurofi-v${newVersion}.apk`;
+const apkUrl = `https://github.com/MOSTAPHASERKHAD/hurofi/releases/download/v${newVersion}/${apkFileName}`;
 const versionPath = join(root, "public", "version.json");
 const versionData = {
   version: newVersion,
   releaseDate: new Date().toISOString().split("T")[0],
   notes: releaseNotes,
+  apkUrl: apkUrl,
   minBuild: 1,
 };
 writeFileSync(versionPath, JSON.stringify(versionData, null, 2));
-console.log(`✅ تم تحديث version.json إلى ${newVersion}`);
+console.log(`✅ تم تحديث version.json إلى ${newVersion} (رابط APK: ${apkFileName})`);
 
 // 2. تحديث package.json
 const pkgPath = join(root, "package.json");
@@ -59,13 +62,13 @@ try {
     { cwd: root, stdio: "inherit", shell: "powershell.exe" }
   );
   
-  // نقل الملف لسطح المكتب وإعادة تسميته
+  // نقل الملف لسطح المكتب مع اسم يحتوي رقم الإصدار
   console.log("\n🚚 نقل الملف إلى سطح المكتب...");
   execSync(
-    `Copy-Item -Force "android\\app\\build\\outputs\\apk\\release\\app-release.apk" -Destination "$([Environment]::GetFolderPath('Desktop'))\\app-release.apk"`,
+    `Copy-Item -Force "android\\app\\build\\outputs\\apk\\release\\app-release.apk" -Destination "$([Environment]::GetFolderPath('Desktop'))\\${apkFileName}"`,
     { cwd: root, stdio: "inherit", shell: "powershell.exe" }
   );
-  console.log("✅ تم تجهيز ملف app-release.apk على سطح المكتب");
+  console.log(`✅ تم تجهيز الملف على سطح المكتب باسم: ${apkFileName}`);
 } catch (e) {
   console.error("❌ حدث خطأ أثناء بناء الـ APK. يمكنك بناؤه من Android Studio يدوياً.");
 }
@@ -97,13 +100,12 @@ console.log(`
 ╠════════════════════════════════════════╣
 ║                                        ║
 ║  تم رفع التغييرات إلى GitHub!          ║
-║  وملف التحديث موجود على سطح مكتبك      ║
-║  باسم: app-release.apk                 ║
+║  الملف على سطح مكتبك باسم:            ║
+║  ${apkFileName.padEnd(38)}║
 ║                                        ║
 ║  الخطوة الأخيرة:                       ║
-║  ستُفتح الآن صفحة جيتهاب تلقائياً،     ║
-║  كل ما عليك هو سحب الملف من سطح المكتب ║
-║  وإفلاته في الصفحة ثم الضغط على:       ║
+║  ستُفتح صفحة جيتهاب في المتصفح،        ║
+║  اسحب الملف وأفلته ثم اضغط:            ║
 ║  Publish release                       ║
 ╚════════════════════════════════════════╝
 `);
