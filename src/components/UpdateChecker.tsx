@@ -62,15 +62,27 @@ export default function UpdateChecker() {
   }, []);
 
   const handleUpdate = async () => {
+    if (!update) return;
     setPhase("downloading");
     setProgress(0);
     setErrorMsg("");
 
     try {
+      // أولاً: التحقق من وجود الملف على الخادم
+      let headCheck: Response;
+      try {
+        headCheck = await fetch(update.apkUrl, { method: "HEAD" });
+        if (!headCheck.ok) {
+          throw new Error(`الملف غير موجود على الخادم (${headCheck.status})`);
+        }
+      } catch (headErr) {
+        throw new Error(`تعذّر الوصول إلى رابط التحميل. تأكد من رفع الملف على GitHub Releases.`);
+      }
+
       // تحميل ملف APK مع متابعة التقدم
       const response = await fetch(update.apkUrl);
       if (!response.ok || !response.body) {
-        throw new Error("فشل تحميل الملف");
+        throw new Error(`فشل التحميل (${response.status} ${response.statusText})`);
       }
 
       const contentLength = Number(response.headers.get("content-length") || 0);
